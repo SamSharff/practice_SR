@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_10_05_183823) do
+ActiveRecord::Schema[7.0].define(version: 2022_10_05_205112) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -21,6 +21,14 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_05_183823) do
     t.string "scope"
     t.string "competition_format"
     t.string "country"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "people", force: :cascade do |t|
+    t.string "person_id"
+    t.string "name"
+    t.string "birth_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
