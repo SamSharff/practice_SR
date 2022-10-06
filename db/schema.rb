@@ -10,12 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_10_06_184501) do
+ActiveRecord::Schema[7.0].define(version: 2022_10_06_204410) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "competitions", force: :cascade do |t|
-    t.integer "comp_id"
+    t.integer "orig_comp_id"
     t.string "name"
     t.string "team_type"
     t.string "scope"
@@ -35,8 +35,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_06_184501) do
 
   create_table "stats", force: :cascade do |t|
     t.string "season"
-    t.integer "comp_id"
-    t.string "team_id"
+    t.integer "orig_comp_id"
+    t.string "orig_team_id"
     t.integer "games"
     t.integer "minutes"
     t.integer "goals"
@@ -44,10 +44,11 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_06_184501) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.date "birthday"
+    t.integer "competition"
   end
 
   create_table "teams", force: :cascade do |t|
-    t.string "team_id"
+    t.string "orig_team_id"
     t.string "name"
     t.string "country"
     t.string "team_type"
